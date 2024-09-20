@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // Use Link for client-side routing
 import './Navbar.css';
 import loginIcon from './login.png'; // Adjust the path as needed
+import api from '../../api';
 
 
 export default function Navbar() {
