@@ -34,3 +34,11 @@ input[type="text"], textarea {
   height: 100px; /* Set a fixed height */
   resize: none; /* Prevent resizing */
 }
+/* Custom style for Export Excel button */
+button.export-excel {
+  background-color:#1ca456;
+}
+
+button.export-excel:hover {
+  background-color:#1a8e4a;
+}

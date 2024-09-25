@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import api from '../../api';
+import axios from 'axios';
 import './LivreDePaie.css';
 
 const LivreDePaie = () => {
@@ -58,11 +59,17 @@ const LivreDePaie = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData); // You can replace this with your form submission logic
-  };
+  
 
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+          const response = await axios.post('/api/livre-de-paie', formData);
+          console.log(response.data.message); // Handle success message
+      } catch (error) {
+          console.error('Error submitting form:', error);
+      }
+  };
   // Function to get label text based on the key and language
   const getLabel = (key, language) => {
     const labels = {
@@ -492,5 +499,6 @@ const LivreDePaie = () => {
     </form>
   );
 };
+
 
 export default LivreDePaie;

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import api from '../../api';
-
+import axios from 'axios';
 import './SignupPage.css';
 
 const SignupPage = () => {
@@ -8,7 +7,6 @@ const SignupPage = () => {
     prenom: '',
     nom: '',
     cin: '',
-    email: '',
     motDePasse: '',
   });
 
@@ -23,6 +21,22 @@ const SignupPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Formulaire soumis:', formData);
+
+    // Make API call to signup endpoint
+    axios.post('http://localhost:5000/api/signup', formData)
+      .then(response => {
+        console.log('User signed up successfully:', response.data);
+        // Optionally, you can reset the form or redirect the user
+        setFormData({
+          prenom: '',
+          nom: '',
+          cin: '',
+          motDePasse: '',
+        });
+      })
+      .catch(error => {
+        console.error('There was an error signing up!', error);
+      });
   };
 
   return (
@@ -58,17 +72,6 @@ const SignupPage = () => {
             id="cin"
             name="cin"
             value={formData.cin}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="email">Email :</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
             onChange={handleChange}
             required
           />
