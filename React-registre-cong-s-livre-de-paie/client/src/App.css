@@ -12,6 +12,7 @@
   background-size: cover; /* Cover the entire container */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-attachment: fixed; /* Fix the background while scrolling */
 }
 
 .App h1 {
@@ -21,7 +22,11 @@
   font-size: 2rem; /* Adjust font size as needed */
   font-weight: bold; /* Optional: make the text bold */
 }
-.main-content{
 
-  background-image: url('/src/assets/background.jpg'); /* Add background image */
+/* Remove redundant background on .main-content if not needed */
+.main-content {
+  padding: 20px; /* Optional padding */
+ 
+  border-radius: 8px; /* Rounded corners for a smoother look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional subtle shadow for depth */
 }
