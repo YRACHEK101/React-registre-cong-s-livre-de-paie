@@ -1,9 +1,8 @@
 const express = require('express');
-const mysql = require('mysql');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');// Token Authentication
 const cors = require('cors');
-const connection = require('./db'); // Import the MySQL connection
+const  SignupRoute = require('./router/signup'); // Importing the routes for Signup
+const connection = require('./Connection_DB'); // Import the MySQL connection
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -15,7 +14,7 @@ app.use(express.json());
 app.use(cors());
 
 // API route to fetch all users
-app.get('/api/users', (req, res) => {
+app.get('/users', (req, res) => {
   connection.query('SELECT * FROM users', (err, results) => {
     if (err) {
       return res.status(500).json({ error: 'Failed to fetch users', details: err });
@@ -43,36 +42,9 @@ app.get('/api/registredescongespayes', (req, res) => {
     res.json(results);
   });
 });
-S
-// API route for user signup
-app.post('/api/signup', async (req, res) => {
-  const { prenom, nom, cin, motDePasse } = req.body;
 
-  // Validate input
-  if (!prenom || !nom || !cin || !motDePasse) {
-      return res.status(400).json({ error: 'All fields are required' });
-  }
-
-  try {
-      // Hash the password
-      const hashedPassword = await bcrypt.hash(motDePasse, 10);
-
-      // SQL query to insert new user
-      const query = 'INSERT INTO signup (prenom, nom, cin, motDePasse) VALUES (?, ?, ?, ?)';
-
-      connection.query(query, [prenom, nom, cin, hashedPassword], (err, results) => {
-          if (err) {
-              console.error('Error inserting user:', err);
-              return res.status(500).json({ error: 'Database error' });
-          }
-          res.status(201).json({ message: 'User registered successfully' });
-      });
-  } catch (error) {
-      console.error('Error hashing password:', error);
-      res.status(500).json({ error: 'Internal server error' });
-  }
-});
-
+// API route for user singup 
+//app.use('/',SignupRoute);
 // API route for user login
 app.post('/api/login', (req, res) => {
   const { cin, password } = req.body;

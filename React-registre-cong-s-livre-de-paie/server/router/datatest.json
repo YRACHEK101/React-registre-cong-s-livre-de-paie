@@ -1,0 +1,40 @@
+{
+    "bulletinNumber": "BN2024001",
+    "period": "September 2024",
+    "fullName": "Alice Johnson",
+    "employment": "Marketing Manager",
+    "birthDate": "1985-09-10",
+    "entryDate": "2015-03-20",
+    "cnssNumber": "CNSS1010101010",
+    "familySituation": "Single",
+    "deductions": {
+      "cnssDeduction": 300,
+      "amoDeduction": 200,
+      "tax": 400,
+      "retirement": 350
+    },
+    "hoursWorked": {
+      "hN": 160,   // Normal hours
+      "hs1": 10,   // Overtime level 1 (1.5x pay)
+      "hs2": 5,    // Overtime level 2 (2x pay)
+      "hs3": 0     // Night shifts
+    },
+    "totalHoursWorked": 175,
+    "workDays": 22,
+    "workHours": 175,
+    "grossBaseSalary": 6000,
+    "bonuses": 500,
+    "seniorityBonus": 200,
+    "taxableBenefits": 300,
+    "grossSalary": 7000,
+    "toDeduct": 1250,
+    "maxRetirement": 500,
+    "taxableSalary": 6750,
+    "totalDeductions": 1250,
+    "netSalary": 5750,
+    "nonTaxableBonuses": 150,
+    "advances": 300,
+    "dirhamsBenefits": 200,
+    "netPaidDirhams": 5500
+  }
+  

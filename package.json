@@ -1,0 +1,11 @@
+{
+  "name": "react-registre-cong-s-livre-de-paie",
+  "version": "1.0.0",
+  "description": "gmail: school.berrechid@gmail.com\r pwd:$School@2024$",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -17,6 +17,9 @@ export default function Navbar() {
             <Link to="/registre-des-conges-payes" className="nav-link">REGISTRE DES CONGES PAYES</Link>
           </li>
           <li className="nav-item">
+            <Link to="/Liste" className="nav-link">LISTE</Link>
+          </li>
+          <li className="nav-item">
             <Link to="/login" className="nav-link">
               <img src={loginIcon} alt="Login" className="login-icon" />
               <span className="sr-only">CONNEXION</span> {/* Screen reader only text */}
